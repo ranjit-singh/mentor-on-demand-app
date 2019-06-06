@@ -1,0 +1,105 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "playlist": [
+    {
+      "id": 1,
+      "title": "X Men",
+      "src": "https://boygeniusreport.files.wordpress.com/2019/03/avengers-endgame-poster-bottom-half.jpg?quality=98&strip=all",
+      "url": "../assets/video/x-men.mp4",
+      "author": "Ranjit"
+    },
+    {
+      "id": 2,
+      "title": "X-Men-1",
+      "src": "https://boygeniusreport.files.wordpress.com/2019/03/avengers-endgame-poster-bottom-half.jpg?quality=98&strip=all",
+      "url": "../assets/video/x-men.mp4",
+      "author": "Ranjit"
+    },
+    {
+      "id": 3,
+      "title": "X-Men-2",
+      "src": "https://boygeniusreport.files.wordpress.com/2019/03/avengers-endgame-poster-bottom-half.jpg?quality=98&strip=all",
+      "url": "../assets/video/x-men.mp4",
+      "author": "Ranjit"
+    },
+    {
+      "id": 4,
+      "title": "X-Men-4",
+      "src": "https://boygeniusreport.files.wordpress.com/2019/03/avengers-endgame-poster-bottom-half.jpg?quality=98&strip=all",
+      "url": "../assets/video/x-men.mp4",
+      "author": "Ranjit"
+    },
+    {
+      "id": 5,
+      "title": "X-Men-5",
+      "src": "https://boygeniusreport.files.wordpress.com/2019/03/avengers-endgame-poster-bottom-half.jpg?quality=98&strip=all",
+      "url": "../assets/video/x-men.mp4",
+      "author": "Ranjit Singh"
+    },
+    {
+      "id": 6,
+      "title": "X-Men-6",
+      "src": "https://boygeniusreport.files.wordpress.com/2019/03/avengers-endgame-poster-bottom-half.jpg?quality=98&strip=all",
+      "url": "../assets/video/x-men.mp4",
+      "author": "Ranjit Kumar Singh"
+    },
+    {
+      "id": 7,
+      "title": "X-Men-7",
+      "src": "https://boygeniusreport.files.wordpress.com/2019/03/avengers-endgame-poster-bottom-half.jpg?quality=98&strip=all",
+      "url": "../assets/video/x-men.mp4",
+      "author": "Ranjit Kumar Singh"
+    },
+    {
+      "id": 8,
+      "title": "X-Men-8",
+      "src": "https://boygeniusreport.files.wordpress.com/2019/03/avengers-endgame-poster-bottom-half.jpg?quality=98&strip=all",
+      "url": "../assets/video/x-men.mp4",
+      "author": "Ranjit Kumar Singh"
+    },
+    {
+      "id": 9,
+      "title": "X-Men-9",
+      "src": "https://boygeniusreport.files.wordpress.com/2019/03/avengers-endgame-poster-bottom-half.jpg?quality=98&strip=all",
+      "url": "../assets/video/x-men.mp4",
+      "author": "Ranjit Kumar Singh"
+    },
+    {
+      "title": "X-Men-4",
+      "src": "https://boygeniusreport.files.wordpress.com/2019/03/avengers-endgame-poster-bottom-half.jpg?quality=98&strip=all",
+      "url": "../assets/video/x-men.mp4",
+      "author": "Ranjit",
+      "id": 10
+    },
+    {
+      "title": "Rocking",
+      "src": "https://boygeniusreport.files.wordpress.com/2019/03/avengers-endgame-poster-bottom-half.jpg?quality=98&strip=all",
+      "url": "../assets/video/x-men.mp4",
+      "author": "Ranjit Kumar Singh",
+      "id": 11
+    },
+    {
+      "title": "vers bump",
+      "src": "https://boygeniusreport.files.wordpress.com/2019/03/avengers-endgame-poster-bottom-half.jpg?quality=98&strip=all",
+      "url": "sdf",
+      "author": "Ranjit Kumar Singh",
+      "id": 12
+    }
+  ]
+}

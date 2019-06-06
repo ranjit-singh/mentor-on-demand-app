@@ -1,0 +1,13 @@
+.main-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-height: calc(100vh - 127px);
+}
+.hide {
+    display: none !important;
+}
+.form-content {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}

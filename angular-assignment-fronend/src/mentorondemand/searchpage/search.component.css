@@ -1,0 +1,12 @@
+.search-block {
+    margin-bottom: 15px;
+}
+.search-block input {
+    border: 1px solid #c9c9c9;
+    width: 100%;
+    height: 42px;
+    padding: 0 50px 0 15px;
+    background: url('../../assets/images/search.png') no-repeat;
+    background-size: 20px;
+    background-position: 98% 10px;
+}

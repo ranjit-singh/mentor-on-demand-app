@@ -1,0 +1,10 @@
+.signup-box {
+    border: 1px solid #f2f2f2;
+    background: #f2f2f2;
+    padding: 30px;
+    width: 500px;
+}
+.signup-box h3 {
+    text-align: center;
+    padding: 0 15px 15px;
+}
