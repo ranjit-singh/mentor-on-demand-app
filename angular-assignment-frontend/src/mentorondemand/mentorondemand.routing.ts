@@ -10,6 +10,7 @@ import { NotificationComponent } from './notifications/notification.component';
 import { MainContainerComponent } from './maincontainer/main-container.component';
 import { AdminComponent } from './admin';
 import { AuthGuard } from './_guards';
+import { MentorProfileComponent } from './mentorprofile/mentorprofile.component';
 
 const routes: Routes = [
     {path: '', component: SearchComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
     {path: 'currenttraining', component: CurrentTrainingComponent, canActivate: [AuthGuard]},
     {path: 'completedtraining', component: CompletedTrainingComponent, canActivate: [AuthGuard]},
     {path: 'editskills', component: EditSkillComponent, canActivate: [AuthGuard]},
+    {path: 'mentorprofile', component: MentorProfileComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: '/admin'}
 ];
 

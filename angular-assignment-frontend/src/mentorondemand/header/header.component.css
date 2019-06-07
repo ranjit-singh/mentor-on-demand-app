@@ -4,7 +4,9 @@
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
 }
 .logo {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+
 }
 .logo img {
     width: 100px;
@@ -21,6 +23,7 @@
 .log-reg li{
     display: inline;
     padding: 0 15px;
+    color: #444e67;
 }
 .log-reg li a {
     color: #444e67;
@@ -31,4 +34,20 @@
 }
 .log-reg li.log-reg-sep {
     padding: 0;
+}
+.user-dropdown {
+    margin-top: 6px;
+    cursor: pointer;
+}
+.user-dropdown .dropdown-toggle {
+    display: flex;
+    align-items: center;
+}
+.user-dropdown .user-img {
+    width: 38px;
+    margin-right: 10px;
+}
+.user-dropdown .dropdown-toggle::after {
+    vertical-align: 3px;
+    margin-left: 10px;
 }

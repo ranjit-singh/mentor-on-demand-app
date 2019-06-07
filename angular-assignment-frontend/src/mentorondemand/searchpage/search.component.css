@@ -10,3 +10,27 @@
     background-size: 20px;
     background-position: 98% 10px;
 }
+.search-head {
+    margin-bottom: 40px;
+    text-align: center;
+}
+.search-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.search-content .btn {
+    width: 30%;
+    margin: 30px auto;
+    padding: 6px 60px;
+}
+.search-options {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+
+}
+.search-dropdown + .search-dropdown {
+    margin-left: 30px;
+}

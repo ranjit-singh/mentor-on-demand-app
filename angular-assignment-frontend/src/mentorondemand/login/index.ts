@@ -1,2 +1,1 @@
-﻿// tslint:disable-next-line: eofline
-export * from './login.component';
+﻿export * from './login.component';

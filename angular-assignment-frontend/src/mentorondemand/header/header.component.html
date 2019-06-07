@@ -4,9 +4,23 @@
                 <img src="../../assets/images/logo.png" alt="">
             </a>
             <ul class="nav log-reg">
-                <li><a class="nav-link" [routerLink]="['login']">Sign In</a></li>
+                <li><a class="nav-link" [routerLink]="['login']">Login</a></li>
                 <li class="log-reg-sep"><span class="nav-link">|</span></li>
                 <li><a class="nav-link" [routerLink]="['signup']">Create Account</a></li>
+                <li class="log-reg-sep"><span class="nav-link">|</span></li>
+                <li>
+                    <div class="user-dropdown dropdown">
+                        <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-img" src="../../assets/images/user.png" alt="">
+                            <span>Muddu Singhu</span>
+                        </div>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Notification</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                      </div>
+                </li>
             </ul>
     </div>
 </header>

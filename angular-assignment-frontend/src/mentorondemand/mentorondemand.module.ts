@@ -26,6 +26,7 @@ import { SearchComponent } from './searchpage/search.component';
 import { routingModule } from './mentorondemand.routing';
 import { NotificationComponent } from './notifications/notification.component';
 import { AdminComponent } from './admin';
+import { MentorProfileComponent } from './mentorprofile/mentorprofile.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AdminComponent } from './admin';
     EditSkillComponent,
     SearchComponent,
     NotificationComponent,
-    AdminComponent
+    AdminComponent,
+    MentorProfileComponent
   ],
   imports: [
     BrowserModule,
