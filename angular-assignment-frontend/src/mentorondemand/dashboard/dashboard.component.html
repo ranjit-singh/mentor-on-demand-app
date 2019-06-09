@@ -1,0 +1,16 @@
+<div class="container">
+        <div class="row">
+                <nav>
+                    <ul class="side-nav">
+                        <li><a class="nav-link active" [routerLink]="['/dashboard/notification']">Notifications</a></li>
+                        <li><a class="nav-link" [routerLink]="['/dashboard/currenttraining']">Current Training</a></li>
+                        <li><a class="nav-link" [routerLink]="['/dashboard/completedtraining']">Completed Training</a></li>
+                        <li><a class="nav-link" [routerLink]="['/dashboard/editskills']">Edit Skills</a></li>
+                    </ul>
+                </nav>
+                <div class="col-lg-9">
+                    <router-outlet></router-outlet>
+                </div>
+        </div>
+</div>
+

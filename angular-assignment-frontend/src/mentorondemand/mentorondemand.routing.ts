@@ -11,18 +11,26 @@ import { MainContainerComponent } from './maincontainer/main-container.component
 import { AdminComponent } from './admin';
 import { AuthGuard } from './_guards';
 import { MentorProfileComponent } from './mentorprofile/mentorprofile.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-    {path: '', component: SearchComponent},
+    {path: 'home', component: SearchComponent,
+    children: [
+        {path: 'mentorlist', component: MainContainerComponent}
+    ]
+    },
     {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
-    {path: 'home', component: MainContainerComponent, canActivate: [AuthGuard]},
     {path: 'login', component: LoginComponent},
     {path: 'signup', component: SignUpComponent},
-    {path: 'notification', component: NotificationComponent, canActivate: [AuthGuard]},
-    {path: 'currenttraining', component: CurrentTrainingComponent, canActivate: [AuthGuard]},
-    {path: 'completedtraining', component: CompletedTrainingComponent, canActivate: [AuthGuard]},
-    {path: 'editskills', component: EditSkillComponent, canActivate: [AuthGuard]},
-    {path: 'mentorprofile', component: MentorProfileComponent, canActivate: [AuthGuard]},
+    {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
+    children: [
+        {path: 'notification', component: NotificationComponent, canActivate: [AuthGuard]},
+        {path: 'currenttraining', component: CurrentTrainingComponent, canActivate: [AuthGuard]},
+        {path: 'completedtraining', component: CompletedTrainingComponent, canActivate: [AuthGuard]},
+        {path: 'editskills', component: EditSkillComponent, canActivate: [AuthGuard]},
+        {path: 'mentorprofile', component: MentorProfileComponent, canActivate: [AuthGuard]},
+    ]
+    },
     {path: '**', redirectTo: '/admin'}
 ];
 

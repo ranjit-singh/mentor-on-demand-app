@@ -15,7 +15,7 @@ import { MentorOnDemandComponent } from './mentorondemand.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { AsideComponent } from './aside/aside.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainContainerComponent } from './maincontainer/main-container.component';
 import { LoginComponent } from './login';
 import { SignUpComponent } from './registration/register.component';
@@ -33,7 +33,7 @@ import { MentorProfileComponent } from './mentorprofile/mentorprofile.component'
     MentorOnDemandComponent,
     HeaderComponent,
     FooterComponent,
-    AsideComponent,
+    DashboardComponent,
     MainContainerComponent,
     LoginComponent,
     SignUpComponent,
