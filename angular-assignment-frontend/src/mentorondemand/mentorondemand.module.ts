@@ -15,7 +15,6 @@ import { MentorOnDemandComponent } from './mentorondemand.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainContainerComponent } from './maincontainer/main-container.component';
 import { LoginComponent } from './login';
 import { SignUpComponent } from './registration/register.component';
@@ -27,6 +26,9 @@ import { routingModule } from './mentorondemand.routing';
 import { NotificationComponent } from './notifications/notification.component';
 import { AdminComponent } from './admin';
 import { MentorProfileComponent } from './mentorprofile/mentorprofile.component';
+import { GridComponent } from './griddetails/grid/grid.component';
+import { SendproposalComponent } from './sendproposal/sendproposal/sendproposal.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { MentorProfileComponent } from './mentorprofile/mentorprofile.component'
     SearchComponent,
     NotificationComponent,
     AdminComponent,
-    MentorProfileComponent
+    MentorProfileComponent,
+    GridComponent,
+    SendproposalComponent
   ],
   imports: [
     BrowserModule,

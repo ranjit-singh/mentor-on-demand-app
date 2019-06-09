@@ -1,28 +1,39 @@
 <div class="container">
         <h1 class="search-head">MENTOR ON DEMAND</h1>
         <div class="search-content">
-            <div class="search-options">
-                <div class="search-dropdown">
-                        <select class="form-control form-control-lg">
-                            <option>Time Slot</option>
-                            <option>9:00 AM - 11:00 AM</option>
-                            <option>1:30 PM - 3:30 PM</option>
-                            <option>3:30 PM - 5:30 PM</option>
-                        </select>
-                </div>
-                <div class="search-dropdown">
-                        <select class="form-control form-control-lg">
-                            <option>Select Technologies</option>
-                            <option>Full Stack</option>
-                            <option>AngularJS</option>
-                            <option>NodeJS</option>
-                        </select>
-                </div>
-            </div>
-            <button type="button" class="btn btn-secondary" (click)="findMentor()">Find</button>
+                <form #myForm="ngForm">
+                        <div class="form-group row">
+                          <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Slot Details</label>
+                          <div class="col-sm-10">
+                                <select class="form-control" id="exampleFormControlSelect1" #slotKey>
+                                        <option *ngFor="let slot of slotDetails" 
+                                            [value]="slot.value">
+                                            {{slot.value}}
+                                        </option>
+                                    </select>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputPassword3" class="col-sm-2 col-form-label">Technology</label>
+                          <div class="col-sm-10">
+                                <select class="form-control" id="exampleFormControlSelect1" #techKey>
+                                        <option *ngFor="let tech of technologyDetails" 
+                                            [value]="tech.value">
+                                            {{tech.value}}
+                                        </option>
+                                    </select>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary float-right" (click)="getMentorDetails(myForm,slotKey,techKey);" >Search</button>
+                          </div>
+                        </div>
+                      </form>
         </div>
-        <router-outlet></router-outlet>
-        <!-- <div class="col-lg-12 search-block">
-                <input type="text" placeholder="Search">      
-        </div> -->
+        
+        <div class="col-lg-12 search-block" *ngIf="showDetails">
+               <app-grid [gridData]="gridDetails" [gridHeaders]="gridHeaders"></app-grid>      
+        </div> 
 </div>
+    

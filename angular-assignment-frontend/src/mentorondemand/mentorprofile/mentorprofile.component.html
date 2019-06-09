@@ -127,32 +127,8 @@
                                     </div>
                         </div>
                         <div class="tab-pane fade" id="sendproposal" role="tabpanel" aria-labelledby="sendproposal-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Technologies</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Java</p>
-                                    </div>
-                                </div>
-                                <form [formGroup]="queryForm" (ngSubmit)="onSubmit()">
-                                <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Query</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <textarea cols="20" rows="3" required></textarea>
-                                        </div>
-                                </div>
-                                <div class="row form-group">
-                                        <div class="col-md-6">
-                                            <label></label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input type="submit" name="send" value="Send">
-                                        </div>
-                                </div>
-                                </form>
+                              <app-sendproposal [mentorDetails]="mentorDetails" [slotDetails]="slotDetails"></app-sendproposal>
+                               
                     </div>
                     </div>
                 </div>

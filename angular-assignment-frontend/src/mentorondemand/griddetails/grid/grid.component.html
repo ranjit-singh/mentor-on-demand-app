@@ -1,0 +1,22 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th *ngFor="let hKey of headerKeys" scope="col">{{gridHeaders[hKey]}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gData of gridData">
+        <td *ngFor="let hKey of headerKeys">
+          <div  [ngSwitch]="returnData(gData,hKey)">
+              <div *ngSwitchCase="true">
+                <a [routerLink]="[gData[hKey].linkDetails.key]" [queryParams]="gData[hKey].linkDetails.params">{{gData[hKey].name}}</a>
+             </div>
+          <div *ngSwitchDefault> {{gData[hKey]}}
+          </div>
+             
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
