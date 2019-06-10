@@ -1,0 +1,17 @@
+<table class="table-content">
+    <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.firstName}} {{user.lastName}}</td>
+            <td>{{user.username}}</td>
+            <td>
+                <a *ngIf="!user.status" (click)="deleteUser(user.id)" class="text-danger">Block User</a>
+                <a *ngIf="user.status" (click)="deleteUser(user.id)" class="text-danger">Un-Block User</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -9,7 +9,7 @@ import { fakeBackendProvider } from './_helpers';
 import { AlertComponent } from './_directives';
 import { AuthGuard } from './_guards';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-import { AlertService, AuthenticationService, UserService } from './_services';
+import { AlertService, AuthenticationService, UserService, AdminService } from './_services';
 
 import { MentorOnDemandComponent } from './mentorondemand.component';
 import { FormsModule } from '@angular/forms';
@@ -29,6 +29,9 @@ import { MentorProfileComponent } from './mentorprofile/mentorprofile.component'
 import { GridComponent } from './griddetails/grid/grid.component';
 import { SendproposalComponent } from './sendproposal/sendproposal/sendproposal.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MentorComponent } from './admin/mentor/mentor.component';
+import { UserComponent } from './admin/user/user.component';
+import { TechnologyComponent } from './admin/technology/technology.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AdminComponent,
     MentorProfileComponent,
     GridComponent,
-    SendproposalComponent
+    SendproposalComponent,
+    MentorComponent,
+    UserComponent,
+    TechnologyComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +67,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AlertService,
     AuthenticationService,
     UserService,
+    AdminService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 

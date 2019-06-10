@@ -11,12 +11,10 @@
                     <div class="user-dropdown dropdown">
                         <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="user-img" src="../../assets/images/user.png" alt="">
-                            <span>Muddu Singhu</span>
+                            <span>{{loggedInUser || 'Ranjit Singh'}}</span>
                         </div>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">Notification</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" [routerLink]="['/login']">Logout</a>
                         </div>
                     </div>
                 </li>

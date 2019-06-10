@@ -9,7 +9,7 @@ import { store } from '@angular/core/src/render3';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isAuthenticated$: Observable<boolean>;
+  isAuthenticated$: boolean;
   constructor(private authGuard: AuthGuard) {}
   ngOnInit() {
     this.isAuthenticated$ = this.authGuard.canActivate(null, null);

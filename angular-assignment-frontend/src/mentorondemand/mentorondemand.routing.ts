@@ -12,6 +12,9 @@ import { AdminComponent } from './admin';
 import { AuthGuard } from './_guards';
 import { MentorProfileComponent } from './mentorprofile/mentorprofile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserComponent } from './admin/user/user.component';
+import { MentorComponent } from './admin/mentor/mentor.component';
+import { TechnologyComponent } from './admin/technology/technology.component';
 
 const routes: Routes = [
     {path: 'home', component: SearchComponent,
@@ -19,7 +22,12 @@ const routes: Routes = [
         {path: 'mentorlist', component: MainContainerComponent}
     ]
     },
-    {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
+    {path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
+    children: [
+        {path: 'users', component: UserComponent, canActivate: [AuthGuard]},
+        {path: 'mentors', component: MentorComponent, canActivate: [AuthGuard]},
+        {path: 'technologies', component: TechnologyComponent, canActivate: [AuthGuard]}
+    ]},
     {path: 'login', component: LoginComponent},
     {path: 'signup', component: SignUpComponent},
     {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
