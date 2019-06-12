@@ -19,7 +19,8 @@ import { TechnologyComponent } from './admin/technology/technology.component';
 const routes: Routes = [
     {path: 'home', component: SearchComponent,
     children: [
-        {path: 'mentorlist', component: MainContainerComponent}
+        {path: 'mentorlist', component: MainContainerComponent},
+        {path: 'mentorprofile', component: MentorProfileComponent},
     ]
     },
     {path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
@@ -35,11 +36,10 @@ const routes: Routes = [
         {path: 'notification', component: NotificationComponent, canActivate: [AuthGuard]},
         {path: 'currenttraining', component: CurrentTrainingComponent, canActivate: [AuthGuard]},
         {path: 'completedtraining', component: CompletedTrainingComponent, canActivate: [AuthGuard]},
-        {path: 'editskills', component: EditSkillComponent, canActivate: [AuthGuard]},
-        {path: 'mentorprofile', component: MentorProfileComponent, canActivate: [AuthGuard]},
+        {path: 'editskills', component: EditSkillComponent, canActivate: [AuthGuard]}
     ]
     },
-    {path: '**', redirectTo: '/admin'}
+    {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 export const routingModule = RouterModule.forRoot(routes);

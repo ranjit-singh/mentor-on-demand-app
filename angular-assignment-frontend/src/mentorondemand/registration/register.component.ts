@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AlertService, UserService } from '../_services';
+import { AlertService, AdminService } from '../_services';
 
 @Component({templateUrl: 'register.component.html', styleUrls: ['./register.component.css']})
 export class SignUpComponent implements OnInit {
@@ -14,7 +14,7 @@ export class SignUpComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private userService: UserService,
+        private adminService: AdminService,
         private alertService: AlertService) { }
 
     ngOnInit() {
@@ -23,7 +23,8 @@ export class SignUpComponent implements OnInit {
             lastName: ['', Validators.required],
             username: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]],
-            role: ['', Validators.required]
+            role: ['', Validators.required],
+            status: ['active']
         });
     }
 
@@ -39,7 +40,7 @@ export class SignUpComponent implements OnInit {
         }
 
         this.loading = true;
-        this.userService.register(this.registerForm.value)
+        this.adminService.register(this.registerForm.value)
             .pipe(first())
             .subscribe(
                 data => {

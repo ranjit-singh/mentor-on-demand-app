@@ -9,7 +9,7 @@ import { fakeBackendProvider } from './_helpers';
 import { AlertComponent } from './_directives';
 import { AuthGuard } from './_guards';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-import { AlertService, AuthenticationService, UserService, AdminService } from './_services';
+import { AlertService, AuthenticationService, AdminService, HomeService } from './_services';
 
 import { MentorOnDemandComponent } from './mentorondemand.component';
 import { FormsModule } from '@angular/forms';
@@ -66,7 +66,7 @@ import { TechnologyComponent } from './admin/technology/technology.component';
     AuthGuard,
     AlertService,
     AuthenticationService,
-    UserService,
+    HomeService,
     AdminService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

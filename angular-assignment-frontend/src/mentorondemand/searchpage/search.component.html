@@ -18,8 +18,8 @@
                           <div class="col-sm-10">
                                 <select class="form-control" id="exampleFormControlSelect1" #techKey>
                                         <option *ngFor="let tech of technologyDetails" 
-                                            [value]="tech.value">
-                                            {{tech.value}}
+                                            [value]="tech.name">
+                                            {{tech.name}}
                                         </option>
                                     </select>
                           </div>
@@ -31,9 +31,6 @@
                         </div>
                       </form>
         </div>
-        
-        <div class="col-lg-12 search-block" *ngIf="showDetails">
-               <app-grid [gridData]="gridDetails" [gridHeaders]="gridHeaders"></app-grid>      
-        </div> 
+        <router-outlet></router-outlet>
 </div>
     

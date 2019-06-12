@@ -10,15 +10,15 @@
         </thead>
         <tbody>
             <tr *ngFor="let mentor of mentors">
-                <td>{{mentor.name}}</td>
+                <td>{{mentor.mentorName}}</td>
                 <td>{{mentor.experience}}</td>
                 <td>{{mentor.technologySpecialist}}</td>
                 <td>{{mentor.noOfTraining}}</td>
                 <td>{{mentor.feeCharge}}</td>
                 <td>{{mentor.rating}}</td>
                 <td>
-                    <a *ngIf="!mentor.status" (click)="deleteUser(mentor.id)" class="text-danger">Block Mentor</a>
-                    <a *ngIf="mentor.status" (click)="deleteUser(mentor.id)" class="text-danger">Un-Block Mentor</a>
+                    <a *ngIf="mentor.status=='active'" (click)="deleteUser(mentor.id)" class="link">Block Mentor</a>
+                    <a *ngIf="mentor.status=='in-active'" (click)="deleteUser(mentor.id)" class="link">Un-Block Mentor</a>
                 </td>
             </tr>
         </tbody>

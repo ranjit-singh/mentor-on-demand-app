@@ -1,31 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { first } from 'rxjs/operators';
 
-import { User } from '../_models';
-import { UserService } from '../_services';
+import { Router } from '@angular/router';
 
 @Component({templateUrl: 'admin.component.html'})
 export class AdminComponent implements OnInit {
-    currentUser: User;
-    users: User[] = [];
+    currentPage: string;
 
-    constructor(private userService: UserService) {
-        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    }
+    constructor(private router: Router) {}
 
     ngOnInit() {
-        this.loadAllUsers();
-    }
-
-    deleteUser(id: number) {
-        this.userService.delete(id).pipe(first()).subscribe(() => {
-            this.loadAllUsers();
-        });
-    }
-
-    private loadAllUsers() {
-        this.userService.getAll().pipe(first()).subscribe(users => {
-            this.users = users;
-        });
+        this.currentPage = 'users';
+        this.router.navigate(['/admin/users']);
     }
 }

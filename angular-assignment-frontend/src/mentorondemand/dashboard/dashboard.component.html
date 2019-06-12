@@ -2,10 +2,10 @@
         <div class="row">
                 <nav>
                     <ul class="side-nav">
-                        <li><a class="nav-link active" [routerLink]="['/dashboard/notification']">Notifications</a></li>
-                        <li><a class="nav-link" [routerLink]="['/dashboard/currenttraining']">Current Training</a></li>
-                        <li><a class="nav-link" [routerLink]="['/dashboard/completedtraining']">Completed Training</a></li>
-                        <li><a class="nav-link" [routerLink]="['/dashboard/editskills']">Edit Skills</a></li>
+                        <li><a class="nav-link" [class.active]="currentPage=='notification'" (click)="currentPage='notification'" [routerLink]="['/dashboard/notification']">Notifications</a></li>
+                        <li><a class="nav-link" [class.active]="currentPage=='currenttraining'" (click)="currentPage='currenttraining'" [routerLink]="['/dashboard/currenttraining']">Current Training</a></li>
+                        <li><a class="nav-link" [class.active]="currentPage=='completedtraining'" (click)="currentPage='completedtraining'" [routerLink]="['/dashboard/completedtraining']">Completed Training</a></li>
+                        <li *ngIf="currentUser.role=='mentor' || currentUser.role=='admin'"><a class="nav-link" [class.active]="currentPage=='editskills'" (click)="currentPage='editskills'" [routerLink]="['/dashboard/editskills']">Edit Skills</a></li>
                     </ul>
                 </nav>
                 <div class="col-lg-9">

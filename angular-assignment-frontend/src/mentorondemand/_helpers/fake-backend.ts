@@ -11,6 +11,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // array in local storage for registered users
         const users: any[] = JSON.parse(localStorage.getItem('users')) || [];
+        const skills: any[] = JSON.parse(localStorage.getItem('skills')) || [];
+        const technologies: any[] = JSON.parse(localStorage.getItem('technologies')) || [];
 
         // wrap in delayed observable to simulate server api call
         return of(null).pipe(mergeMap(() => {
@@ -30,7 +32,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                         username: user.username,
                         firstName: user.firstName,
                         lastName: user.lastName,
-                        token: 'fake-jwt-token'
+                        token: 'fake-jwt-token',
+                        role: user.role,
+                        status: user.status
                     };
 
                     return of(new HttpResponse({ status: 200, body }));
@@ -106,6 +110,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                         if (user.id === id) {
                             // delete user
                             users.splice(i, 1);
+                            user.status = user.status === 'active' ? 'in-active' : 'active';
+                            users.push(user);
                             localStorage.setItem('users', JSON.stringify(users));
                             break;
                         }
@@ -117,6 +123,135 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     // return 401 not authorised if token is null or invalid
                     return throwError({ status: 401, error: { message: 'Unauthorised' } });
                 }
+            }
+
+            // add skill
+            if (request.url.endsWith('/mentor/addskill') && request.method === 'POST') {
+                // get new skill object from post body
+                const newSkill = request.body;
+
+                // validation
+                const duplicateSkill = skills.filter(skill => skill.name === newSkill.name).length;
+                if (duplicateSkill) {
+                    return throwError({ error: { message: 'skill "' + newSkill.name + '" is already exist' } });
+                }
+
+                // save new user
+                newSkill.id = skills.length + 1;
+                skills.push(newSkill);
+                localStorage.setItem('skills', JSON.stringify(skills));
+
+                // respond 200 OK
+                return of(new HttpResponse({ status: 200 }));
+            }
+
+            // get skills of mentor
+            if (request.url.match(/\/mentor\/skill\/\d+$/) && request.method === 'GET') {
+                const skill: any = [];
+                // tslint:disable-next-line: max-line-length
+                                // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
+                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                                    // find skill by id in skills array
+                                    const urlParts = request.url.split('/');
+                // tslint:disable-next-line: radix
+                                    const id = parseInt(urlParts[urlParts.length - 1]);
+// tslint:disable-next-line: prefer-for-of
+                                    for (let i = 0; i < skills.length; i++) {
+                                        if (skills[i].mentorId === id) {
+                                            skill.push(skills[i]);
+                                        }
+                                    }
+                                    // respond 200 OK
+                                    return of(new HttpResponse({ status: 200, body: skill }));
+                                } else {
+                                    // return 401 not authorised if token is null or invalid
+                                    return throwError({ status: 401, error: { message: 'Unauthorised' } });
+                                }
+            }
+
+            // delete mentor skill
+            if (request.url.match(/\/mentor\/skill\/\d+$/) && request.method === 'DELETE') {
+                // tslint:disable-next-line: max-line-length
+                                // check for fake auth token in header and return tech if valid, this security is implemented server side in a real application
+                                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                                    // find tech by id in skills array
+                                    const urlParts = request.url.split('/');
+                // tslint:disable-next-line: radix
+                                    const id = parseInt(urlParts[urlParts.length - 1]);
+                                    for (let i = 0; i < skills.length; i++) {
+                                        const skill = skills[i];
+                                        if (skill.mentorId === id) {
+                                            // delete tech
+                                            skills.splice(i, 1);
+                                            localStorage.setItem('skills', JSON.stringify(skills));
+                                            break;
+                                        }
+                                    }
+                                    // respond 200 OK
+                                    return of(new HttpResponse({ status: 200 }));
+                                } else {
+                                    // return 401 not authorised if token is null or invalid
+                                    return throwError({ status: 401, error: { message: 'Unauthorised' } });
+                                }
+            }
+
+            // add technology
+            if (request.url.endsWith('/technologies/create') && request.method === 'POST') {
+                // get new technology object from post body
+                const newTechnologies = request.body;
+
+                // validation
+                const duplicateTech = technologies.filter(tech => tech.name === newTechnologies.name).length;
+                if (duplicateTech) {
+                    return throwError({ error: { message: 'Technology "' + newTechnologies.name + '" is already exist' } });
+                }
+
+                // save new technology
+                newTechnologies.id = technologies.length + 1;
+                technologies.push(newTechnologies);
+                localStorage.setItem('technologies', JSON.stringify(technologies));
+
+                // respond 200 OK
+                return of(new HttpResponse({ status: 200 }));
+            }
+
+            // get all technology
+            if (request.url.endsWith('/technologies/getAll') && request.method === 'GET') {
+                // tslint:disable-next-line: max-line-length
+                                // check for fake auth token in header and return tech if valid, this security is implemented server side in a real application
+                                // if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                                //     return of(new HttpResponse({ status: 200, body: technologies }));
+                                // } else {
+                                //     // return 401 not authorised if token is null or invalid
+                                //     return throwError({ status: 401, error: { message: 'Unauthorised' } });
+                                // }
+                                return of(new HttpResponse({ status: 200, body: technologies }));
+            }
+
+            // delete technology
+            if (request.url.match(/\/technologies\/\d+$/) && request.method === 'DELETE') {
+                // tslint:disable-next-line: max-line-length
+                                // check for fake auth token in header and return tech if valid, this security is implemented server side in a real application
+                                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                                    // find tech by id in technologies array
+                                    const urlParts = request.url.split('/');
+                // tslint:disable-next-line: radix
+                                    const id = parseInt(urlParts[urlParts.length - 1]);
+                                    for (let i = 0; i < technologies.length; i++) {
+                                        const tech = technologies[i];
+                                        if (tech.id === id) {
+                                            // delete tech
+                                            technologies.splice(i, 1);
+                                            localStorage.setItem('technologies', JSON.stringify(technologies));
+                                            break;
+                                        }
+                                    }
+                                    // respond 200 OK
+                                    return of(new HttpResponse({ status: 200 }));
+                                } else {
+                                    // return 401 not authorised if token is null or invalid
+                                    return throwError({ status: 401, error: { message: 'Unauthorised' } });
+                                }
             }
 
             // pass through any requests not handled above

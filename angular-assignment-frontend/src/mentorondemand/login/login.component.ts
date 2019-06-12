@@ -24,10 +24,6 @@ export class LoginComponent implements OnInit {
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
-
-        // reset login status
-        this.authenticationService.logout();
-
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/admin';
     }
@@ -48,7 +44,21 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
+                    this.authenticationService.setCurrentUser(data);
+                    switch (data.role) {
+                        case 'admin':
+                            this.router.navigate(['/admin']);
+                            break;
+                        case 'user':
+                            this.router.navigate(['/dashboard']);
+                            break;
+                        case 'mentor':
+                            this.router.navigate(['/dashboard']);
+                            break;
+                        default:
+                            this.router.navigate([this.returnUrl]);
+                            break;
+                    }
                 },
                 error => {
                     this.alertService.error(error);

@@ -56,10 +56,6 @@ export class AdminService {
         return this.http.get<Technology[]>(`${environment.apiUrl}/technologies/getAll`);
     }
 
-    updateTechnology(technology: Technology) {
-        return this.http.put(`${environment.apiUrl}/technologies/` + technology.id, technology);
-    }
-
     deleteTechnology(id: string) {
         return this.http.delete(`${environment.apiUrl}/technologies/` + id);
     }

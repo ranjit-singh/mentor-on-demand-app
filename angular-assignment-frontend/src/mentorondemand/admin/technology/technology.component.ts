@@ -53,6 +53,7 @@ export class TechnologyComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
+                    this.loading = false;
                     this.loadAllTechnologies();
                 },
                 error => {

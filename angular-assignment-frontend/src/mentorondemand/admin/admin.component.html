@@ -3,9 +3,9 @@
     <div class="row">
             <nav>
                 <ul class="side-nav">
-                    <li><a class="nav-link active" [routerLink]="['/admin/users']">Users</a></li>
-                    <li><a class="nav-link" [routerLink]="['/admin/mentors']">Mentors</a></li>
-                    <li><a class="nav-link" [routerLink]="['/admin/technologies']">Technologies</a></li>
+                    <li><a class="nav-link" [class.active]="currentPage=='users'" (click)="currentPage='users'" [routerLink]="['/admin/users']">Users</a></li>
+                    <li><a class="nav-link" [class.active]="currentPage=='mentors'" (click)="currentPage='mentors'" [routerLink]="['/admin/mentors']">Mentors</a></li>
+                    <li><a class="nav-link" [class.active]="currentPage=='technologies'" (click)="currentPage='technologies'" [routerLink]="['/admin/technologies']">Technologies</a></li>
                 </ul>
             </nav>
             <div class="col-lg-9">

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../_services';
 
 @Component({
-  selector: 'current-training',
   templateUrl: './current-training.component.html',
   styleUrls: ['./current-training.component.css']
 })
 export class CurrentTrainingComponent implements OnInit {
-
-  ngOnInit(){}
+  ngOnInit() {}
 
 }
